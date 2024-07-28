@@ -2,32 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "Neue";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/neue/NeueMontreal-Regular.otf") format("opentype");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: "Neue";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/neue/NeueMontreal-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/neue/NeueMontreal-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 300;
+  font-style: italic;
+  src: url("/neue/NeueMontreal-LightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/neue/NeueMontreal-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 500;
+  font-style: italic;
+  src: url("/neue/NeueMontreal-MediumItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/neue/NeueMontreal-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/neue/NeueMontreal-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/neue/NeueMontreal-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/neue/NeueMontreal-BlackItalic.otf") format("opentype");
+}
+
+.custom-list {
+  counter-reset: list-counter;
+}
+
+.custom-list li {
+  list-style: none;
+  counter-increment: list-counter;
+  position: relative;
+}
+
+.custom-list li::before {
+  content: counter(list-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  color: black; /* Adjust this color to match your design */
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.customs-list {
+  counter-reset: list-counter;
+  color: white;
+}
+.customs-list li {
+  list-style: none;
+  counter-increment: list-counter;
+  position: relative;
+}
+
+.customs-list li::before {
+  content: counter(list-counter, decimal-leading-zero);
+  position: absolute;
+
+  top: -3px;
+  color: black; /* Adjust this color to match your design */
+  font-size: 10px;
+  margin-top: 3px;
+  color: gray;
+  font-size: 9px;
+}
+
+@media (min-width: 768px) {
+  .custom-list li::before {
+    content: none !important;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Add this CSS to your stylesheet */
+.group:hover .cursor-pointer {
+  color: black;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.group:hover .cursor-pointer:hover {
+  color: initial; /* or specify the desired color if not the default */
 }
