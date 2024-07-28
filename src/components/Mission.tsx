@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitText from "gsap-trial/SplitText";
 
 // gsap plugins
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText);
 
 function Mission() {
   const augenRef = useRef<HTMLDivElement>(null);
@@ -35,9 +33,9 @@ function Mission() {
     }
 
     if (humanRef.current) {
-      const split = new SplitText(humanRef.current, { type: "chars" });
+      const chars = humanRef.current.querySelectorAll("span");
       gsap.fromTo(
-        split.chars,
+        chars,
         { x: -100, opacity: 0, filter: "blur(30px)" },
         {
           x: 0,
@@ -65,7 +63,6 @@ function Mission() {
           duration: 1.5,
           ease: "power1.inOut",
           filter: "blur(0px)",
-
           scrollTrigger: {
             trigger: el,
             start: "top 80%",
@@ -82,12 +79,27 @@ function Mission() {
     }
   };
 
+  // Function to split text into individual characters
+  const splitText = (text: string) => {
+    return text.split("").map((char, index) => (
+      <span
+        key={index}
+        style={{
+          display: "inline-block",
+          marginRight: char === " " ? "0.2em" : "0",
+        }}
+      >
+        {char}
+      </span>
+    ));
+  };
+
   return (
     <div className="bg-[#161719] text-white font-neue flex items-start flex-col py-20 px-10 md:items-center">
       <div className="font-light items-center md:flex flex-col w-full">
         <h1 ref={augenRef}>At Augen</h1>
         <h1 className="text-[#0071e3]" ref={humanRef}>
-          We put Humans First
+          {splitText("We put Humans First")}
         </h1>
       </div>
       <div>
