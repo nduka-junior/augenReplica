@@ -45,12 +45,12 @@ function Introduction() {
     >
       <div className="text-center md:w-[30%] md:text-sm">
         <h1 className="font-thin  md:text-sm  ">Introduction</h1>
-        <h1 className="font-light text-lg  md:text-sm">What's Augen</h1>
+        <h1 className="font-light text-lg  md:text-sm">What&apos;s Augen</h1>
       </div>
       <div className="flex max-md:items-center flex-col gap-20 md:w-[70%]">
         <h1 className="text-xl   md:text-2xl md:pr-[10vw]">
           Augen is the first-of-its-kind AI Wearable Company bringing
-          general-purpose devices to improve people's life.
+          general-purpose devices to improve people&apos;s life.
         </h1>
         <div className="flex gap-3 items-center ">
           <div className="border-[#0071e3] py-1 px-3 rounded-[30px] border-[1px]  w-auto">
